@@ -6,35 +6,46 @@
 <title>Mingalar AI Chat</title>
 </head>
 <body>
+<h1>🤖 Mingalar AI</h1>
 
-<h1>🤖 Mingalar AI Chat</h1>
+<div id="chat" style="height:300px;border:1px solid #ddd;padding:10px;overflow:auto;border-radius:10px;background:#f8f8f8;">
+  <p><b>Mingalar AI:</b> Hello! 👋</p>
+</div>
 
-<input type="text" id="message" placeholder="Type your message...">
-
-<button onclick="sendMessage()">Send</button>
-
-<p id="reply"></p>
+<div style="margin-top:10px;">
+  <input
+    type="text"
+    id="message"
+    placeholder="Type your message..."
+    style="width:70%;padding:10px;border-radius:8px;">
+    
+  <button onclick="sendMessage()" style="padding:10px 16px;border-radius:8px;">
+    Send
+  </button>
+</div>
 
 <script>
 function sendMessage() {
-  let msg = document.getElementById("message").value.toLowerCase();
-  let answer = "";
+  let input = document.getElementById("message");
+  let msg = input.value.trim();
+  if (!msg) return;
 
-  if (msg == "hi" || msg == "hello") {
+  let answer = "Sorry, I don't understand yet.";
+
+  if (msg.toLowerCase() == "hi" || msg.toLowerCase() == "hello") {
     answer = "Hello! Welcome to Mingalar AI 👋";
-  } else if (msg == "how are you?") {
+  } else if (msg.toLowerCase() == "how are you?") {
     answer = "I'm fine. How can I help you? 😊";
-  } else if (msg == "what is your name?") {
+  } else if (msg.toLowerCase() == "what is your name?") {
     answer = "My name is Mingalar AI.";
-  } else if (msg == "မင်္ဂလာပါ") {
-    answer = "မင်္ဂလာပါ။ ဘာကူညီပေးရမလဲ?";
-  } else if (msg == "နေကောင်းလား") {
-    answer = "နေကောင်းပါတယ် 😊";
-  } else {
-    answer = "Sorry, I don't understand yet.";
   }
 
-  document.getElementById("reply").innerHTML = answer;
+  let chat = document.getElementById("chat");
+  chat.innerHTML += "<p><b>You:</b> " + msg + "</p>";
+  chat.innerHTML += "<p><b>Mingalar AI:</b> " + answer + "</p>";
+  chat.scrollTop = chat.scrollHeight;
+
+  input.value = "";
 }
 </script>
 
