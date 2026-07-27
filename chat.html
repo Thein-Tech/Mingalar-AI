@@ -17,19 +17,21 @@
 
 <script>
 function sendMessage() {
-  let msg = document.getElementById("message").value;
-
+  let msg = document.getElementById("message").value.toLowerCase();
   let answer = "";
 
-  if (msg.toLowerCase() == "hi") {
+  if (msg == "hi" || msg == "hello") {
     answer = "Hello! Welcome to Mingalar AI 👋";
-  } else if (msg == "နေကောင်းလား") {
-    answer = "နေကောင်းပါတယ် 😊";
+  } else if (msg == "how are you?") {
+    answer = "I'm fine. How can I help you? 😊";
+  } else if (msg == "what is your name?") {
+    answer = "My name is Mingalar AI.";
   } else if (msg == "မင်္ဂလာပါ") {
     answer = "မင်္ဂလာပါ။ ဘာကူညီပေးရမလဲ?";
+  } else if (msg == "နေကောင်းလား") {
+    answer = "နေကောင်းပါတယ် 😊";
   } else {
-  } else if (msg.toLowerCase() == "how are you?") {
-  answer = "I'm fine. How can I help you? 😊";  answer = "Sorry, I don't understand yet.";
+    answer = "Sorry, I don't understand yet.";
   }
 
   document.getElementById("reply").innerHTML = answer;
