@@ -18,8 +18,20 @@
 <script>
 function sendMessage() {
   let msg = document.getElementById("message").value;
-  document.getElementById("reply").innerHTML =
-    "You said: " + msg;
+
+  let answer = "";
+
+  if (msg.toLowerCase() == "hi") {
+    answer = "Hello! Welcome to Mingalar AI 👋";
+  } else if (msg == "နေကောင်းလား") {
+    answer = "နေကောင်းပါတယ် 😊";
+  } else if (msg == "မင်္ဂလာပါ") {
+    answer = "မင်္ဂလာပါ။ ဘာကူညီပေးရမလဲ?";
+  } else {
+    answer = "Sorry, I don't understand yet.";
+  }
+
+  document.getElementById("reply").innerHTML = answer;
 }
 </script>
 
